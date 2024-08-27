@@ -27,6 +27,8 @@
 // Set unicode input
 #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
 
+// Allow deferred executors (for sm_td)
+#define MAX_DEFERRED_EXECUTORS 10
 
 /*#define MUSIC_MASK (keycode != KC_NO)*/
 
