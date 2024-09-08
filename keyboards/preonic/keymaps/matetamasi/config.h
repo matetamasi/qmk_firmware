@@ -29,6 +29,7 @@
 
 // Allow deferred executors (for sm_td)
 #define MAX_DEFERRED_EXECUTORS 10
+#define SMTD_DEBUG_ENABLED
 
 /*#define MUSIC_MASK (keycode != KC_NO)*/
 

@@ -16,7 +16,6 @@
 
 //#include <math.h>
 #include "keymap_hungarian.h"
-#include "sm_td.h"
 #include QMK_KEYBOARD_H
 
 
@@ -34,6 +33,12 @@ enum preonic_layers {
     _ADJUSTHU,
     _FN
 };
+
+//#define SMTD_T_T 1000
+#define SMTD_GLOBAL_TAP_TERM 180
+#define SMTD_GLOBAL_SEQUENCE_TERM 1200
+#define SMTD_GLOBAL_FOLLOWING_TAP_TERM 1500
+#define SMTD_GLOBAL_RELEASE_TERM 30
 
 enum preonic_keycodes {
     LOWER = SAFE_RANGE,
@@ -55,6 +60,7 @@ enum preonic_keycodes {
     CKC_SCLN,
     SMTD_KEYCODES_END,
 };
+#include "sm_td.h" //needs to be imported after defining keycodes
 
 enum hu_mode {
     SOFTWARE,
@@ -344,14 +350,14 @@ enum hu_mode hu_mode = SOFTWARE;
 
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     switch (keycode) {
-        SMTD_MT(CKC_A, KC_A, KC_LEFT_CTRL)
-        SMTD_MT(CKC_S, KC_S, KC_LEFT_GUI)
-        SMTD_MT(CKC_D, KC_D, KC_LEFT_ALT)
-        SMTD_MT(CKC_F, KC_F, KC_LSFT)
-        SMTD_MT(CKC_J, KC_J, KC_RSFT)
-        SMTD_MT(CKC_K, KC_K, KC_RIGHT_ALT)
-        SMTD_MT(CKC_L, KC_L, KC_RIGHT_GUI)
-        SMTD_MT(CKC_SCLN, KC_SCLN, KC_RIGHT_CTRL)
+        SMTD_MT(CKC_A, KC_A, KC_LEFT_CTRL, 2)
+        SMTD_MT(CKC_S, KC_S, KC_LEFT_GUI, 2)
+        SMTD_MT(CKC_D, KC_D, KC_LEFT_ALT, 2)
+        SMTD_MT(CKC_F, KC_F, KC_LSFT, 2)
+        SMTD_MT(CKC_J, KC_J, KC_RSFT, 2)
+        SMTD_MT(CKC_K, KC_K, KC_RIGHT_ALT, 2)
+        SMTD_MT(CKC_L, KC_L, KC_RIGHT_GUI, 2)
+        SMTD_MT(CKC_SCLN, KC_SCLN, KC_RIGHT_CTRL, 2)
     }
 }
 
